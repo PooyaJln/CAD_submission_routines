@@ -4,9 +4,11 @@ import pyautocad
 import pathlib
 from pyautocad import Autocad
 
+#these two paths will be changed to a function that asks the user to browse to the correct directory.
 acad_path = r"C:\Program Files\Autodesk\AutoCAD 2019\acad.exe"
 accore_path = r"C:\Program Files\Autodesk\AutoCAD 2019\accoreconsole.exe"
 
+#function to start autocad
 def cad_actions(file_in):
     acad = pyautocad.Autocad()
     shell_process = subprocess.Popen(file_in, shell = True) 
@@ -15,7 +17,8 @@ def cad_actions(file_in):
 
     # for doc in acad.app.Documents:
     #     print(doc.Name)
-    
+
+#this function gets a number of files. it will be upgraded to fetch the files by drag-n-drop and file browser window
 def file_list_by_file_name(): #returns a list of file in a directory
     file_list = []
     file_path = input("please enter the address to the file and when you are done enter ""done!"" ")
@@ -26,7 +29,7 @@ def file_list_by_file_name(): #returns a list of file in a directory
     print(file_list)
     
 
-
+# a function to get the files in a directory.
 def file_list_by_dir():
     given_path = input("Please enter your directory:")
     given_folder = pathlib.Path(given_path) #creates a <class 'pathlib.WindowsPath'>
